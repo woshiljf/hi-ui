@@ -1,0 +1,44 @@
+.myui-alert{
+    width: 100%;
+    padding: 8px 16px;
+    margin: 0;
+    box-sizing: border-box;
+    border-radius: 4px;
+    position: relative;
+    background-color: white;
+    overflow: hidden;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    transition: opacity .2s;
+    .content{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        .close {
+            cursor: pointer;
+        }
+    }
+}
+.closeClass {
+    display: none !important;
+    transition: all 1s;
+}
+.myui-waring {
+
+    background-color: #ccc;
+    color: black;
+
+}
+.myui-error{
+    background-color: red;
+    color: white;
+}
+.myui-success{
+    background-color: skyblue;
+    color: white;
+}
+.myui-info{
+    background-color: #67c23a;;
+    color: white;
+}
