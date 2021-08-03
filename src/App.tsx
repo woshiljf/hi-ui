@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.scss'
 import Button, { ButtonSize, ButtonType } from './components/Button/Button'
-
+import { MonacoDiffEditor } from 'react-monaco-editor'
 import Cascader from './components/Cascader/Cascader'
 
 function App() {
@@ -30,6 +30,14 @@ function App() {
   const changeHandle = (e: any) => {
     console.log(e.target.value)
   }
+  const state = {
+    code: 'const a = "Hello Monaco"',
+    original: 'const a = "Hello World"',
+  }
+  const { code, original } = state
+  const onChange = () => {
+    console.log('a')
+  }
   return (
     <div>
       <h1>app</h1>
@@ -46,6 +54,15 @@ function App() {
         change={changeHandle}
         size={{ width: '100px', height: '10px' }}
       ></Cascader>
+      <MonacoDiffEditor
+        theme="vs-dark"
+        width="800"
+        height="300"
+        language="javascript"
+        value={code}
+        original={original}
+        onChange={onChange}
+      />
     </div>
   )
 }
