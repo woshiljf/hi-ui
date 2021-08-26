@@ -90,7 +90,6 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
   return (
     <li key={index} className={classes} {...hoverEvents}>
       <div className="submenu-title" {...clickEvents}></div>
-
       {renderChildren()}
     </li>
   )
