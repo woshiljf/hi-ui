@@ -12,8 +12,8 @@
 🚆 本地预览
 
 ```bash
-git clone git@github.com:worldzhao/react-ui-library-tutorial.git
-cd react-ui-library-tutorial
+git clone git@github.com:woshiljf/hi-ui.git
+cd hl-ui
 yarn
 yarn start
 ```
