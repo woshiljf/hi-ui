@@ -15,13 +15,16 @@ export interface AlbumProps {
 const Album: React.FC<AlbumProps> = ({ content, urls, width, height }) => {
   const [urlsData, setUrlsData] = useState<string[]>(urls);
   const changePic = () => {
-    const reads = new FileReader();
-    const f = document.getElementById('file')?.files[0];
-
-    reads.readAsDataURL(f);
-    reads.onload = e => {
-      setUrlsData((pre: any) => [...pre, e.target?.result]);
-    };
+    try {
+      const reads = new FileReader();
+      const file = document.getElementById('file')?.files[0];
+      reads.readAsDataURL(file);
+      reads.onload = e => {
+        setUrlsData((pre: any) => [...pre, e.target?.result]);
+      };
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <>
@@ -37,7 +40,6 @@ const Album: React.FC<AlbumProps> = ({ content, urls, width, height }) => {
 
         <div className="upload-box" style={{ width: 100, height: 100 }}>
           <label htmlFor="file" id="label">
-            上传图片
             <input
               type="file"
               name=""
@@ -45,6 +47,7 @@ const Album: React.FC<AlbumProps> = ({ content, urls, width, height }) => {
               id="file"
               accept="image/*"
               onChange={changePic}
+              style={{ width: 100, height: 100 }}
             />
           </label>
         </div>
